@@ -1,0 +1,48 @@
+---
+layout: runbook
+title: '#4471 · two date defects, not one'
+owner: sawy3r11
+status: triaged
+reviewed: 2026-11-01
+signature: sawy3r11
+---
+
+<script>
+  import RenderStamp from '../../lib/RenderStamp.svelte';
+
+  const causes = [
+    {
+      issue: 'Parser reads day-first tenant dates as month-first',
+      reports: 379,
+      detail: 'The shared parser assumes month/day input for tenants whose locale writes the day first. Dates with two valid numbers are swapped.'
+    },
+    {
+      issue: 'booking-v3 gives day-first tenants an MM/DD/YYYY hint',
+      reports: 33,
+      detail: 'On day-first tenants using booking-v3, the date-field hint tells people to enter month/day while the tenant workflow reads the value day first.'
+    }
+  ];
+</script>
+
+# #4471 contains two date defects
+
+The 412 unique reports merged into #4471 are not one problem. The ticket-system export has
+427 rows, including 15 repeated report IDs. Deduplicating by report ID leaves 412 reports.
+
+| Problem | Reports | GitHub issue |
+| --- | ---: | --- |
+| Shared parser treats day-first dates as month-first | 379 | Parser reads day-first tenant dates as month-first |
+| booking-v3 advertises an MM/DD/YYYY date format to day-first tenants | 33 | booking-v3 gives day-first tenants an MM/DD/YYYY hint |
+
+## Method
+
+Each unique report was classified from the tenant's locale, its booking-form version, and the
+report channel. Every deduplicated report in #4471 belongs to exactly one of the two causes.
+The original intake tag is only a guess, so it was not used as the final classification.
+
+## Follow-up
+
+The two causes need separate fixes, owners, and verification. Keeping them merged would hide the
+33 reports caused by the booking-v3 hint behind the larger parser defect.
+
+<RenderStamp {signature} />
