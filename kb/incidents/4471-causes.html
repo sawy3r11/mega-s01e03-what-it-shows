@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#4471 · two date defects, not one · support kb</title>
+    <style>
+      body { max-width: 760px; margin: 0 auto; padding: 2rem 16px 4rem; color: #1d1d1b; font: 16px/1.6 system-ui, sans-serif; }
+      .meta, footer { color: #6b6a66; font-size: .85rem; }
+      table { border-collapse: collapse; width: 100%; } th, td { border-bottom: 1px solid #e3e0d8; padding: .35rem .5rem; text-align: left; }
+      .stamp b { color: #2f6f5e; letter-spacing: .04em; }
+    </style>
+  </head>
+  <body>
+    <header><p class="meta">support desk · kb</p><h1>#4471 · two date defects, not one</h1><p class="meta">owner sawy3r11 · closed · reviewed 2026-10-05</p></header>
+    <main>
+      <p>The 412 unique reports merged into #4471 contain two distinct defects.</p>
+      <table><thead><tr><th>Problem</th><th>Reports</th><th>Outcome</th></tr></thead><tbody>
+        <tr><td>Shared parser treats day-first dates as month-first</td><td>379</td><td>Fixed: <code>fix(dates): parse dd/mm for eu locales</code></td></tr>
+        <tr><td>booking-v3 advertises an MM/DD/YYYY date format to day-first tenants</td><td>33</td><td>Won't fix: booking-v3 was retired</td></tr>
+      </tbody></table>
+      <p>The ticket-system export has 427 rows, including 15 repeated IDs. Deduplicating by report ID leaves 412 reports.</p>
+    </main>
+    <footer class="stamp">desk ref <b>DR-P068-QNCH</b></footer>
+  </body>
+</html>
