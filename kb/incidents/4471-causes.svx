@@ -3,7 +3,7 @@ layout: runbook
 title: '#4471 · two date defects, not one'
 owner: sawy3r11
 status: triaged
-reviewed: 2026-11-01
+reviewed: 2026-10-05
 signature: sawy3r11
 ---
 
@@ -42,7 +42,16 @@ The original intake tag is only a guess, so it was not used as the final classif
 
 ## Follow-up
 
-The two causes need separate fixes, owners, and verification. Keeping them merged would hide the
-33 reports caused by the booking-v3 hint behind the larger parser defect.
+The two causes needed separate outcomes. Keeping them merged would have hidden the 33 reports
+caused by the booking-v3 hint behind the larger parser defect.
+
+## Engineering update
+
+#4471 closed on 5 October.
+
+- **Parser — fixed:** `fix(dates): parse dd/mm for eu locales`.
+- **booking-v3 hint — won't fix:** booking-v3 was retired.
+
+The parser ticket is closed as completed. The booking-v3 hint ticket is closed as not planned.
 
 <RenderStamp {signature} />

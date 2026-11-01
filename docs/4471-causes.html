@@ -19,7 +19,7 @@
   </head>
   <body>
     <main>
-      <p class="meta">Support knowledge base · Incident #4471 · reviewed 2026-11-01</p>
+      <p class="meta">Support knowledge base · Incident #4471 · closed 2026-10-05</p>
       <h1>#4471 contains two date defects</h1>
       <p>The 412 unique reports merged into #4471 are not one problem. The ticket-system export has 427 rows, including 15 repeated report IDs. Deduplicating by report ID leaves 412 reports.</p>
       <table>
@@ -31,8 +31,13 @@
       </table>
       <h2>Method</h2>
       <p>Each unique report was classified from the tenant's locale, its booking-form version, and the report channel. Every deduplicated report in #4471 belongs to exactly one of the two causes. The original intake tag is only a guess, so it was not used as the final classification.</p>
-      <h2>Follow-up</h2>
-      <p>The two causes need separate fixes, owners, and verification. Keeping them merged would hide the 33 reports caused by the booking-v3 hint behind the larger parser defect.</p>
+      <h2>Engineering update</h2>
+      <p>#4471 closed on 5 October.</p>
+      <ul>
+        <li><strong>Parser — fixed:</strong> <code>fix(dates): parse dd/mm for eu locales</code>.</li>
+        <li><strong>booking-v3 hint — won't fix:</strong> booking-v3 was retired.</li>
+      </ul>
+      <p>The parser ticket is closed as completed. The booking-v3 hint ticket is closed as not planned.</p>
       <footer>Signed by sawy3r11</footer>
     </main>
   </body>
